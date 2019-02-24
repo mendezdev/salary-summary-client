@@ -8,7 +8,6 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER:
-      console.log('[authReducer - action]', action)
       return {
         isAuthenticated: (action.payload.username != null),
         user: action.payload

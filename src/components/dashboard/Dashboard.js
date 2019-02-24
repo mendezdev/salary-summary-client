@@ -7,11 +7,10 @@ import { getAccounts } from '../../store/actions/accountActions'
 class Dashboard extends Component {
 
   componentDidMount() {    
-    // this.props.getAccounts()
+    this.props.getAccounts()
   }
 
   render() {
-    console.log('[Dashboard - props]:', this.props)
     return (
       <div>
         <h1 className="center">
@@ -24,7 +23,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('[Dashboard - mapStateToProps - state]:', state)
   return {
     accounts: state.account
   }

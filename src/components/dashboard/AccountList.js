@@ -1,8 +1,7 @@
 import React from 'react'
 
 const AccountList = (props) => {
-  console.log('[AccountList - props]:', props)
-  if (props.length > 0) {
+  if (props.accounts.length > 0) {
     return props.accounts.map(account => {
       return (
         <ul key={account._id}>          
