@@ -3,7 +3,6 @@ import React from 'react'
 import AccountItem from './AccountItem'
 
 const AccountList = (props) => {
-  console.log('[AccountList - props]:', props)
   if (props.accounts.length > 0) {
     return (
       <div className="row">
