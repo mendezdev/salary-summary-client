@@ -1,8 +1,17 @@
+import axios from 'axios'
 import { GET_ACCOUNTS } from './types'
 
-export const getAccounts = () => {
+const uri = 'http://localhost:5000';
+
+const getAccountsAsync = async () => {
+  const res = await axios.get(`${uri}/accounts`)
+
   return {
     type: GET_ACCOUNTS,
-    payload: { data: 'accounts' }
+    payload: res.data
   }
+}
+
+export const getAccounts = () => async dispatch => {
+  dispatch(await getAccountsAsync())
 }

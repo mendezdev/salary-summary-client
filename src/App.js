@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
+import AuthRoute from './components/auth/AuthRoute'
 import Dashboard from './components/dashboard/Dashboard'
 import Navbar from './components/layout/Navbar'
 import SignIn from './components/auth/SignIn'
@@ -13,7 +14,7 @@ class App extends Component {
         <div className="App container">
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Dashboard} />
+            <AuthRoute exact path="/" component={Dashboard} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
           </Switch>          

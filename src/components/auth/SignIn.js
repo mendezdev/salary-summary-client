@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { signIn } from '../../store/actions/authActions'
 
 class SignIn extends Component {
   state = {
     email: '',
+    username: '',
     password: ''
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('state:', this.state)
+    this.props.signIn(this.state)
   }
 
   handleChange = (e) => {
@@ -19,12 +23,16 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <form onSubmit={this.handleSubmit}>
-          <h5>Sign In</h5>
+          <h5 className="center">Sign In</h5>
           <div className="input-field">
             <label htmlFor="email">Email</label>
             <input type="email" id="email" onChange={this.handleChange}/>
+          </div>
+          <div className="input-field">
+            <label htmlFor="username">Username</label>
+            <input type="text" id="username" onChange={this.handleChange}/>
           </div>
           <div className="input-field">
             <label htmlFor="password">Password</label>
@@ -39,4 +47,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn
+export default connect(null, { signIn })(SignIn)
