@@ -21,6 +21,14 @@ class SignIn extends Component {
     })
   }
 
+  renderMessageError = () => {
+    if (this.props.auth.error) {
+      return (
+        <p>{this.props.auth.error.error.message}</p>
+      )
+    }
+  }
+
   render() {
     return (
       <div className="container">
@@ -42,9 +50,16 @@ class SignIn extends Component {
             <button className="btn pink lighten-1 z-depth">Login</button>
           </div>
         </form>
+        {this.renderMessageError()}
       </div>
     )
   }
 }
 
-export default connect(null, { signIn })(SignIn)
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps, { signIn })(SignIn)
