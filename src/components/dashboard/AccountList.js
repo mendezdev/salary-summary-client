@@ -1,18 +1,23 @@
 import React from 'react'
 
+import AccountItem from './AccountItem'
+
 const AccountList = (props) => {
+  console.log('[AccountList - props]:', props)
   if (props.accounts.length > 0) {
-    return props.accounts.map(account => {
-      return (
-        <ul key={account._id}>          
-          <li>ID: {account._id}</li>
-          <li>Name: {account.name}</li>
-          <li>Amount: {account.amount}</li>
-        </ul>
-      )
-    })
+    return (
+      <div className="row">
+        {props.accounts.map(account => {
+          return (
+            <div className="col s12 m6" key={account._id}>
+              <AccountItem account={account}/>
+            </div>
+          )
+        })}
+      </div>
+    )    
   } else {
-    return <p className="center">No accounts yet</p>
+    return <p className="center">No hay cuentas aún.</p>
   }
 }
 

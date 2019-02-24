@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard/Dashboard'
 import Navbar from './components/layout/Navbar'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
+import AccountDetail from './components/dashboard/AccountDetail'
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <AuthRoute exact path="/" component={Dashboard} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
+            <Route path="/accounts/:id" component={AccountDetail} />
           </Switch>          
         </div>
       </BrowserRouter>
