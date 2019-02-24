@@ -8,8 +8,10 @@ import { Provider } from 'react-redux'
 import reduxThunk from 'redux-thunk'
 
 import rootReducer from './store/reducers/rootReducer'
+import { checkAuthToken } from './utils/setAuthorizationToken'
 
 const store = createStore(rootReducer, {}, applyMiddleware(reduxThunk))
+checkAuthToken(store.dispatch)
 
 ReactDOM.render(
   <Provider store={store}>
