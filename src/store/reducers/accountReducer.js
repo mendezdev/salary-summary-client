@@ -1,7 +1,8 @@
 import { 
   GET_ACCOUNTS, 
   GET_ACCOUNTS_ERROR, 
-  GET_ACCOUNTS_REQUEST
+  GET_ACCOUNTS_REQUEST,
+  GET_ACCOUNT_BY_ID
 } from '../actions/types'
 
 const initialState = {
@@ -27,6 +28,14 @@ const accountReducer = (state = initialState, action) => {
         error: null,
         loading: false,
         accounts: action.payload        
+      }
+    case GET_ACCOUNT_BY_ID:
+      return {
+        ...state,
+        loading: false,
+        hasError: false,
+        error: null,
+        account: action.payload
       }
     case GET_ACCOUNTS_ERROR:
       return {

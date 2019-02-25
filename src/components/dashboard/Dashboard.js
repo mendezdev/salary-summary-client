@@ -12,7 +12,6 @@ class Dashboard extends Component {
   }
 
   renderAccounts() {
-    console.log('[renderAccounts - props]', this.props)
     const {accounts} = this.props
     if (accounts.loading) {
       return <Spinner />
