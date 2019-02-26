@@ -14,10 +14,9 @@ class AccountDetail extends Component {
 
   render() {
     const { accounts } = this.props
-    console.log('[accounts]:', accounts)
     const title = (
       <div>
-        <h1 className="center">Detalle de cuenta:</h1>
+        <h1 className="center">Detalle de cuenta</h1>
       </div>
     )
 
