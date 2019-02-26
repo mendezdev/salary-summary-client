@@ -42,10 +42,6 @@ class AccountDetail extends Component {
     return accounts.account ? (
       <div>
         {title}
-        {/* <ul className="collection with-header">
-          <li className="collection-header"><h4>Nombre: {accounts.account.name}</h4></li>
-          <li className="collection-item">Disponible: {accounts.account.amount}</li>
-        </ul> */}
         <div className="row">
           <div className="col m4 s12">
             <div className="section">
@@ -59,16 +55,7 @@ class AccountDetail extends Component {
             </div>
           </div>
           <div className="col m8 s12">
-            {/* <div className="card blue-grey darken-1 z-depth-3">
-              <div className="card-content white-text">
-                <span className="card-title">Title</span>
-                <p>Description</p>
-              </div>
-              <div className="card-action">
-                <Link to={'/'}>Ver detalle</Link>
-              </div>
-            </div> */}
-            <ExpenseList />
+            <ExpenseList accountId={this.props.match.params.id} />
           </div>
         </div>
       </div>
