@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Spinner from '../utils/Spinner'
+import ExpenseList from '../expense/ExpenseList'
 import { getAccountById } from '../../store/actions/accountActions'
 
 class AccountDetail extends Component {
@@ -12,7 +14,12 @@ class AccountDetail extends Component {
 
   render() {
     const { accounts } = this.props
-    const title = <h1 className="center">Detalle de cuenta:</h1>
+    console.log('[accounts]:', accounts)
+    const title = (
+      <div>
+        <h1 className="center">Detalle de cuenta:</h1>
+      </div>
+    )
 
     if (accounts.loading) {
       return (
@@ -35,10 +42,35 @@ class AccountDetail extends Component {
     return accounts.account ? (
       <div>
         {title}
-        <ul className="collection with-header">
+        {/* <ul className="collection with-header">
           <li className="collection-header"><h4>Nombre: {accounts.account.name}</h4></li>
           <li className="collection-item">Disponible: {accounts.account.amount}</li>
-        </ul>
+        </ul> */}
+        <div className="row">
+          <div className="col m4 s12">
+            <div className="section">
+              <h5>Nombre cuenta:</h5>
+              <p>{accounts.account.name}</p>
+            </div>
+            <div className="divider"></div>
+            <div className="section">
+              <h5>Disponible:</h5>
+              <p>$ {accounts.account.amount}</p>
+            </div>
+          </div>
+          <div className="col m8 s12">
+            {/* <div className="card blue-grey darken-1 z-depth-3">
+              <div className="card-content white-text">
+                <span className="card-title">Title</span>
+                <p>Description</p>
+              </div>
+              <div className="card-action">
+                <Link to={'/'}>Ver detalle</Link>
+              </div>
+            </div> */}
+            <ExpenseList />
+          </div>
+        </div>
       </div>
     ) : null
   }
