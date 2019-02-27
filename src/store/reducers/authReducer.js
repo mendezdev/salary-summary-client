@@ -1,4 +1,8 @@
-import { SET_CURRENT_USER, SET_CURRENT_USER_ERROR } from '../actions/types'
+import {
+  SET_CURRENT_USER,
+  SET_CURRENT_USER_ERROR,
+  SET_LOGOUT_CURRENT_USER
+} from '../actions/types'
 
 const initialState = {
   isAuthenticated: false,
@@ -19,6 +23,12 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: false,
         user: {},
         error: action.payload
+      }
+    case SET_LOGOUT_CURRENT_USER:
+      return {
+        isAuthenticated: false,
+        user: {},
+        error: null
       }
     default:
       return state

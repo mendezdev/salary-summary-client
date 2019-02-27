@@ -6,7 +6,6 @@ import UserLinks from './UserLinks'
 import GuestLinks from './GuestLinks'
 
 const Navbar = (props) => {
-  console.log('[Navbar - props]', props)
   const links = props.auth.isAuthenticated ? <UserLinks /> : <GuestLinks />
 
   return (
@@ -20,7 +19,6 @@ const Navbar = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log('[mapStateToProps - state]', state)
   return {
     auth: state.auth
   }
